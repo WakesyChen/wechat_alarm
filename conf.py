@@ -5,9 +5,9 @@ CORP_ID = "wwb4ea78b05f6b0df7"
 # 某个自建应用的id及secret, 在管理端 -> 企业应用 -> 自建应用, 点进相应应用可以看到
 APP_ID = 1000002
 # 应用密钥，只能进行读操作，无写操作权限。对用户，部门等进行写操作报异常：no privilege to access/modify contact/party/agent
-APP_SECRET = "gEu_0u5fsPMrC6z7Jm6dkM_Yfeliay0anogXgMRGE68"
+APP_SECRET = "gEu_0u5fsPMrC6z7Jm6dkEgYSW3b3SdX59TK5fqpa7Q"
 # 通讯录同步密钥，可以对部门，用户进行读写操作， 管理端 -> 管理工具 -> 通讯录同步
-CONTACT_SYNC_SECRET = "HNtp7SKdvpmqqJQahl2vJjaobA482CCJD0h5Xflc834"
+CONTACT_SYNC_SECRET = "HNtp7SKdvpmqqJQahl2vJn1HRGZEy09Ddacf5XrBLX8"
 DEBUG = False
 
 # 访问通讯录的token, 如部门、用户等的读写操作

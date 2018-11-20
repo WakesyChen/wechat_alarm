@@ -41,7 +41,7 @@ class ApplicationApi(BaseApi):
             response = self.http_request(CORP_API_TYPE['APPLICATION_GET'], args=args)
             print response
         except Exception as error:
-            print traceback.format_exc()
+            print repr(error)
 
 if __name__ == '__main__':
    app_api = ApplicationApi(CORP_ID, APP_SECRET)
