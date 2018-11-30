@@ -30,7 +30,7 @@ class MessageApi(BaseApi):
             print repr(error)
 
     def corp_wechat_invite(self):
-        '''邀请加入企业微信，邮件或者短信, 试过好像不起作用'''
+        '''邀请加入企业微信，邮件或者短信, 貌似不起作用'''
         '''返回格式
             {
             "errcode" : 0,

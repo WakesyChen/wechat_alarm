@@ -6,10 +6,8 @@ sys.path.append(os.path.abspath('../'))
 from conf import CORP_ID, APP_SECRET, CONTACT_SYNC_SECRET
 from base_api import CORP_API_TYPE, BaseApi
 
-
 class UserApi(BaseApi):
-
-    def simple_list(self):
+    def simple_list(self, department_id=''):
         '''获取部门成员'''
         '''返回格式：
             {u'userlist': [
@@ -19,14 +17,18 @@ class UserApi(BaseApi):
             u'errmsg': u'ok'}
         '''
         try:
-            args = {'department_id': 2, "fetch_child": 0} # fetch_child：1/0,是否递归查询子部门下的用户
+            if department_id:
+                args = {'department_id': department_id, "fetch_child": 0} # fetch_child：1/0,是否递归查询子部门下的用户
+            else:
+                args = None
             response = self.http_request(CORP_API_TYPE['USER_SIMPLE_LIST'], args=args)
             print response
+            return response
         except Exception as error:
             print traceback.format_exc()
     
 
-    def detail_list(self):
+    def detail_list(self, department_id=''):
         '''获取部门成员详情'''
         '''返回格式：已省略部分
             {"errcode": 0,
@@ -44,9 +46,10 @@ class UserApi(BaseApi):
             }
         '''
         try:
-            args = {'department_id': 1}
+            args = {'department_id': department_id} if department_id else None
             response = self.http_request(CORP_API_TYPE['USER_LIST'], args=args)
             print response
+            return response
         except Exception as error:
             print traceback.format_exc()
 

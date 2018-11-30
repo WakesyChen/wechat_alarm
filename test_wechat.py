@@ -13,10 +13,10 @@ def department_test():
     contact_sync_token = TOKEN_TYPES['contact_sync_token']
     department_api = DepartmentApi(CORP_ID, CONTACT_SYNC_SECRET, contact_sync_token)
     # department_api.create()
-    # department_api.list()
+    # department_api.get()
     # department_api.update()
     # department_api.delete()
-    department_api.simple_list()
+    department_api.get()
 
 
 def user_test():

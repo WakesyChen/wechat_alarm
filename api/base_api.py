@@ -35,26 +35,31 @@ CORP_API_TYPE = {
         'CHATGROUP_GET'     : ['/cgi-bin/appchat/get?access_token=ACCESS_TOKEN', 'GET'],
         'CHATGROUP_SEND'    : ['/cgi-bin/appchat/send?access_token=ACCESS_TOKEN', 'POST'],
         # 应用
-        'APPLICATION_GET'   : ['/cgi-bin/agent/get?access_token=ACCESS_TOKEN', 'GET']
+        'APPLICATION_GET'   : ['/cgi-bin/agent/get?access_token=ACCESS_TOKEN', 'GET'],
+        'APPLICATION_UPDATE': ['/cgi-bin/agent/set?access_token=ACCESS_TOKEN', 'POST']
 }
 
 
 class BaseApi(object):
 
-    def __init__(self, corpid, secret, access_token=None):
+    def __init__(self, corpid='', secret='', token_type='app_token'):
         self.corpid = corpid
         self.secret = secret
-        self.access_token = access_token
+        self.token_type = token_type
+        self.access_token = None
 
     def get_access_token(self):
-        if self.access_token is None:
+        # todo: get token in db by token_type
+        if not self.access_token:
             self.refresh_access_token()
+        
         return self.access_token
   
     def refresh_access_token(self):
         args = {'corpid': self.corpid, 'corpsecret': self.secret}
         response = self.http_request(CORP_API_TYPE['GET_ACCESS_TOKEN'], args)
         self.access_token = response.get('access_token')
+        # todo: update token in db by token_type
 
     def http_request(self, url_type, args=None):
         short_url = url_type[0]

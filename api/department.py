@@ -10,7 +10,7 @@ from conf import CORP_ID, CONTACT_SYNC_SECRET
 
 class DepartmentApi(BaseApi):
 
-    def simple_list(self):
+    def get(self, id=''):
         '''部门列表'''
         '''返回格式：
             {u'department': [
@@ -22,12 +22,14 @@ class DepartmentApi(BaseApi):
             u'errmsg': u'ok'}
         '''
         try:
-            response = self.http_request(CORP_API_TYPE['DEPARTMENT_LIST'])
+            args = None if not id else {'id': id} # 不指定，则获取全量组织架构
+            response = self.http_request(CORP_API_TYPE['DEPARTMENT_LIST'], args=args)
             print response
+            return response
         except ApiException as error:
             print repr(error)
 
-    def create(self, department_name):
+    def create(self, department_name, parentid=1):
         '''创建部门'''
         '''返回格式： 
             {u'id': 2,
@@ -35,7 +37,7 @@ class DepartmentApi(BaseApi):
             u'errmsg': u'created'}
         '''
         args = {'name': department_name,
-                'parentid': 1,  # 父部门id
+                'parentid': parentid,  # 父部门id
                 # 'order': 2,     # order越大越靠前
                 # 'id': 4         # 部门id，不填自动生成
                 }        
@@ -85,5 +87,5 @@ if __name__ == '__main__':
     # department_api.update()
     # department_api.delete()
     
-    department_api.simple_list()
+    department_api.get()
 

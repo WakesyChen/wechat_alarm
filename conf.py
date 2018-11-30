@@ -16,3 +16,10 @@ DEBUG = False
 TOKEN_TYPES = {'contact_sync_token': 'uptiAKUpBhPhU1laaLYOKyzQBzCnbp0hPEr7qFXqVy8k87wVrgN132myVGjKvYFNtdYOGBxjyigaGfQ4qe3HMZMWzVtpduvLI3PHc-x6ihHdbm-Es3x9So9afX3el3guGB3OQrs40SKTs4HRit1A1TZmghrxHeePD2ReDKX3H-Q4CV9snX3kg3yy87Fx8UJji-A6KbKG2MenYhZuMx2jpg',       
                'app_token': 'wjveUe7cbTPcwwmhe2qUsOlq5t_dve0JqP68wDu8VIUC8pZFd5ArCF_dXx850oMBOYB7QYjzg4xOEMIB2GJ_30dKnr-nYyeMr6rCuNeK9MSwNVV_mNTXC5hjA-xX1mSo6DDVmtHVkTsdgAGmflBYf5V3HMJwda-8DtgYdP7xLV3aKqAhPhuHS3tbieBiyfkI2dgrXFP5tXVLanRiAB5NeA'}                
 
+wechat_configure = {"corp_id": "wwb4ea78b05f6b0df7",
+                    "app_id": 1000002,
+                    "app_secret": "gEu_0u5fsPMrC6z7Jm6dkEgYSW3b3SdX59TK5fqpa7Q",
+                    "contact_sync_secret": "HNtp7SKdvpmqqJQahl2vJn1HRGZEy09Ddacf5XrBLX8",
+                    "alarm_group_id": 2,
+                    "alarm_switch": "on",
+                    }
